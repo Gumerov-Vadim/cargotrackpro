@@ -1,6 +1,6 @@
 const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
     {
-      id: "CARGO001",
+      id: "CARGO1",
       name: "Строительные материалы",
       status: "В пути",
       origin: "Москва",
@@ -8,7 +8,7 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
       departureDate: "2024-11-24"
     },
     {
-      id: "CARGO002",
+      id: "CARGO2",
       name: "Хрупкий груз",
       status: "Ожидает отправки",
       origin: "Санкт-Петербург",
@@ -31,6 +31,7 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
   const cargoListChanger = {
     updateLocalStorage: function() {
       localStorage.setItem("cargoList", JSON.stringify(cargoList));
+      showCargoList(cargoList);
     },
     addCargo: function(cargo) {
       cargoList.push(cargo);
@@ -71,13 +72,16 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
   }
 
   $(document).ready(function() {
-    // cargoListChanger.addCargo({
-    //     id: "CARGO003",
-    //     name: "Груз 3",
-    //     status: "В пути",
-    //     origin: "Москва",
-    //     destination: "Казань",
-    //     departureDate: "2024-11-24"
-    // });
+    $("form").on("submit", function(e) {
+        e.preventDefault();
+        cargoListChanger.addCargo({
+            id: `CARGO${cargoList.length + 1}`,
+            name: $("#cargoName").val(),
+            status: "Ожидает отправки",
+            origin: $("#cargoFrom").find("option:selected").text(),
+            destination: $("#cargoTo").find("option:selected").text(),
+            departureDate: $("#cargoDate").val()
+        });
+    });
+    showCargoList(cargoList);
 });
-showCargoList(cargoList);
