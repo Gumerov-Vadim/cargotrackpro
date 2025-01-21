@@ -27,30 +27,36 @@
                     <div class="mb-3 row">
                         <div class="col-md-3">
                             <label for="cargoName" class="form-label">Название груза</label>
-                            <input #cargoName type="text" class="form-control" id="cargoName" aria-describedby="emailHelp">
+                            <input required type="text" class="form-control" id="cargoName" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">Введите название груза</div>
                         </div>
                         <div class="col-md-3">
                             <label for="cargoFrom" class="form-label">Откуда</label>
-                            <select id="cargoFrom" class="form-select" aria-label="Default select example">
-                                <option selected>Выберите город</option>
+                            <select required id="cargoFrom" class="form-select" aria-label="Default select example">
+                                <option disabled selected value="">Выберите город</option>
                                 <option value="1">Москва</option>
                                 <option value="2">Санкт-Петербург</option>
                                 <option value="3">Уфа</option>
                             </select>
+                            <div class="invalid-feedback">
+                              Пожалуйста, выберите город.
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <label for="cargoTo" class="form-label">Куда</label>
-                            <select id="cargoTo" class="form-select" aria-label="Default select example">
-                                <option selected>Выберите город</option>
+                            <select required id="cargoTo" class="form-select" aria-label="Default select example">
+                                <option disabled selected value="">Выберите город</option>
                                 <option value="1">Москва</option>
                                 <option value="2">Санкт-Петербург</option>
                                 <option value="3">Уфа</option>
                             </select>
+                            <div class="invalid-feedback">
+                              Пожалуйста, выберите город.
+                            </div>
                         </div> 
                         <div class="col-md-3">
                             <label for="cargoDate" class="form-label">Дата отправки</label>
-                            <input #cargoDate type="date" class="form-control" id="cargoDate">
+                            <input required type="date" class="form-control" id="cargoDate">
                         </div>
                         <div class="col-md-3 mt-4">
                             <button type="submit" class="btn btn-primary">Добавить</button>
@@ -59,6 +65,13 @@
                 </form>
             </div>
           </div>
+
+          <select id="statusFilter" class="w-25 form-select mb-3" aria-label="select status filter">
+            <option selected value="">Показать все</option>
+            <option value="1">Ожидает отправки</option>
+            <option value="2">В пути</option>
+            <option value="3">Доставлен</option>
+          </select>
 
         <table id="cargoList" class="table table-hover">
             <thead class="table-light">
@@ -85,7 +98,7 @@
             </tbody>
           </table>
     </div>
-        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <footer class="bg-light fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
               <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>

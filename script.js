@@ -84,4 +84,7 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
         });
     });
     showCargoList(cargoList);
+    $("#statusFilter").on("change", function() {
+        showCargoList(cargoList.filter(cargo => cargo.status === $("#statusFilter").find("option:selected").text()||$("#statusFilter").find("option:selected").text() === "Показать все"));
+    });
 });
