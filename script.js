@@ -48,6 +48,13 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
   }
   function handleStatusChange(cargoId, status) {
     const cargo = cargoList.find(c=>c.id === cargoId);
+    if(status === cargoStatuses[2].name) {
+        if(cargo.departureDate > new Date().toISOString().split('T')[0]) {
+            const toast = new bootstrap.Toast($("#liveToast"));
+            toast.show();
+            return;
+        }
+    }
     cargoListChanger.updateCargo({
         ...cargo,
         status: status
@@ -74,6 +81,7 @@ const cargoList = JSON.parse(localStorage.getItem("cargoList")) || [
   $(document).ready(function() {
     $("form").on("submit", function(e) {
         e.preventDefault();
+        
         cargoListChanger.addCargo({
             id: `CARGO${cargoList.length + 1}`,
             name: $("#cargoName").val(),
