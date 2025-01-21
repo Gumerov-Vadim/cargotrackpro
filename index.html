@@ -16,6 +16,18 @@
     <div class="container">
         <h1>cargo track pro</h1>
         <h2>Список грузов</h2>
+
+        <p class="d-inline-flex gap-1">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#AddNewCargoForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Добавить новый груз
+            </a>
+        </p>
+          <div class="mb-3 collapse" id="AddNewCargoForm">
+            <div class="card card-body">
+              Здесь будет форма для добавления нового груза
+            </div>
+          </div>
+
         <table class="table table-hover">
             <thead class="table-light">
               <tr></tr>
@@ -31,7 +43,17 @@
               <tr></tr>
                 <td>CARGO001</td>
                 <td>Строительные материалы</td>
-                <td>В пути</td>
+                <td>
+                    <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><button class="btn dropdown-item">В пути</button></li>
+                      <li><button class="btn dropdown-item">Ожидает отправки</button></li>
+                      <li><button class="btn dropdown-item">Доставлен</button></li>
+                    </ul>
+                  </div>
+                </td>
                 <td>Москва</td>
                 <td>Казань</td>
                 <td>2024-11-24</td>
