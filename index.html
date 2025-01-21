@@ -24,7 +24,40 @@
         </p>
           <div class="mb-3 collapse" id="AddNewCargoForm">
             <div class="card card-body">
-              Здесь будет форма для добавления нового груза
+                <form>
+                    <div class="mb-3 row">
+                        <div class="col-md-3">
+                            <label for="cargoName" class="form-label">Название груза</label>
+                            <input type="text" class="form-control" id="cargoName" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Введите название груза</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cargoFrom" class="form-label">Откуда</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Выберите город</option>
+                                <option value="1">Москва</option>
+                                <option value="2">Санкт-Петербург</option>
+                                <option value="3">Уфа</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cargoTo" class="form-label">Куда</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Выберите город</option>
+                                <option value="1">Москва</option>
+                                <option value="2">Санкт-Петербург</option>
+                                <option value="3">Уфа</option>
+                            </select>
+                        </div> 
+                        <div class="col-md-3">
+                            <label for="cargoDate" class="form-label">Дата отправки</label>
+                            <input type="date" class="form-control" id="cargoDate">
+                        </div>
+                        <div class="col-md-3 mt-4">
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </div>
+                </form>
             </div>
           </div>
 
@@ -46,6 +79,7 @@
                 <td>
                     <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        test
                     </button>
                     <ul class="dropdown-menu">
                       <li><button class="btn dropdown-item">В пути</button></li>
